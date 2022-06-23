@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/Users/lamhai/python/dp-py/.venv/bin/python3",
+    "python.linting.pylintEnabled": true,
+    "git.ignoreLimitWarning": true,
+}
