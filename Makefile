@@ -1,5 +1,8 @@
 SHELL := /bin/bash
 
+start:
+	source ./.venv/bin/activate
+
 init:
 	poetry init
 

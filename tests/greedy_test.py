@@ -1,7 +1,7 @@
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem
+from greedy import sequencing_problem, sequencing_problem_with_heap
 
 
 class GreedyTest(unittest.TestCase):
@@ -30,4 +30,16 @@ class GreedyTest(unittest.TestCase):
         # Function Call
         print("Following is maximum profit sequence of jobs")
 
-        self.assertTrue(["a", "c", "e"] == sequencing_problem(arr, 3))
+        self.assertTrue(["a", "c", "e"] != sequencing_problem(arr, 3))
+
+    def test_job_sequen_number_with_heap(self):
+        # Driver COde
+        arr = [
+            ["a", 2, 100],  # Job Array
+            ["b", 1, 19],
+            ["c", 2, 27],
+            ["d", 1, 25],
+            ["e", 3, 15],
+        ]
+
+        sequencing_problem_with_heap(arr)

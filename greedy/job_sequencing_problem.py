@@ -1,4 +1,5 @@
 from typing import List
+import heapq
 
 
 def sequencing_problem(arr, t_jobs):
@@ -22,3 +23,29 @@ def sequencing_problem(arr, t_jobs):
 
     print(result)
     return result
+
+def sequencing_problem_with_heap(arr):
+    length_arr = len(arr) # find arr len
+
+    result: List = []
+    max_heap: List = []
+
+
+    # sorted current arr with increasing deadline
+    arr = sorted(arr, key=lambda item: item[1])
+
+    for i in range(length_arr-1,-1,-1):
+
+        if i == 0:
+            slot_avail = arr[i][1]
+        else:
+            slot_avail = arr[i][1] - arr[i-1][1]
+
+        heapq.heappush(max_heap, (-arr[i][2], arr[i][1], arr[i][0]))
+
+        while slot_avail and max_heap:
+            _, _, job_id = heapq.heappop(max_heap)
+            result.append(job_id)
+            slot_avail -=1
+
+    print(result)
