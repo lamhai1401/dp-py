@@ -1,7 +1,7 @@
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set
 
 
 class GreedyTest(unittest.TestCase):
@@ -43,3 +43,12 @@ class GreedyTest(unittest.TestCase):
         ]
 
         sequencing_problem_with_heap(arr)
+
+    def test_disjoin_set(self):
+        arr = [{'id': 'a', 'deadline': 2, 'profit': 100},
+        {'id': 'b', 'deadline': 1, 'profit': 19},
+        {'id': 'c', 'deadline': 2, 'profit': 27},
+        {'id': 'd', 'deadline': 1, 'profit': 25},
+        {'id': 'e', 'deadline': 3, 'profit': 15}]
+
+        self.assertTrue(["a", "c", "e"] == disjoin_set(arr))
