@@ -1,7 +1,8 @@
+from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy
 
 
 class GreedyTest(unittest.TestCase):
@@ -52,3 +53,15 @@ class GreedyTest(unittest.TestCase):
         {'id': 'e', 'deadline': 3, 'profit': 15}]
 
         self.assertTrue(["a", "c", "e"] == disjoin_set(arr))
+
+    def test_loss_minimization(self):
+        l: List = [1, 2, 3, 5, 6]
+        t: List = [2, 4, 1, 3, 2]
+
+        # self.assertTrue([3, 5, 4, 1, 2] == loss_inimization(l, t))
+
+    def test_loss_inimization_strategy(self):
+        arr = [3, 5, 4, 1, 2, 7, 6, 8, 9, 10]
+        p = 0.1
+
+        self.assertTrue(41.3811 == loss_inimization_strategy(arr, p))

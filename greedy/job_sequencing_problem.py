@@ -3,7 +3,7 @@ import heapq
 import sys
 from unittest import result
 
-from tomlkit import item
+from heapq import heappop, heappush, heapify
 
 
 def sequencing_problem(arr, t_jobs):
@@ -124,3 +124,18 @@ def disjoin_set(arr):
             result.append(arr[i]['id'])
 
     return result
+
+
+def loss_inimization(l, t):
+    pass
+
+
+def loss_inimization_strategy(arr, p):
+    arr = sorted(arr, key=lambda item: item)
+    total = 0.0
+    length = len(arr) -1
+
+    for index, value in enumerate(arr):
+        total += value* pow((1 - p), (length - index))
+
+    return round(total, 4)
