@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree
 
 
 class GreedyTest(unittest.TestCase):
@@ -65,3 +65,14 @@ class GreedyTest(unittest.TestCase):
         p = 0.1
 
         self.assertTrue(41.3811 == loss_inimization_strategy(arr, p))
+
+    def test_huffman_tree_coding(self):
+        # characters for huffman tree
+        chars = ['a', 'b', 'c', 'd', 'e', 'f']
+
+        # frequency of characters
+        freq = [ 5, 9, 12, 13, 16, 45]
+
+
+        self.assertTrue(['0', '100', '101', '1100', '1101', '111'] == build_huffman_tree(frecs=freq, symbol=chars))
+
