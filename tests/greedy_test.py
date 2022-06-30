@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input
 
 
 class GreedyTest(unittest.TestCase):
@@ -30,7 +30,6 @@ class GreedyTest(unittest.TestCase):
 
         # Function Call
         print("Following is maximum profit sequence of jobs")
-
         self.assertTrue(["a", "c", "e"] != sequencing_problem(arr, 3))
 
     def test_job_sequen_number_with_heap(self):
@@ -76,3 +75,13 @@ class GreedyTest(unittest.TestCase):
 
         self.assertTrue(['0', '100', '101', '1100', '1101', '111'] == build_huffman_tree(frecs=freq, symbol=chars))
 
+    def test_huffman_coding_for_sorted_input(self):
+        # characters for huffman tree
+        chars = ['a', 'b', 'c', 'd', 'e', 'f']
+
+        # frequency of characters
+        freq = [ 5, 9, 12, 13, 16, 45]
+
+
+        print("Following test_huffman_coding_for_sorted_input")
+        self.assertTrue(['0', '100', '101', '1100', '1101', '111'] == huffman_coding_for_sorted_input(frecs=freq, symbol=chars))
