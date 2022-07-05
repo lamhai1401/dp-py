@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve
 
 
 class GreedyTest(unittest.TestCase):
@@ -85,3 +85,15 @@ class GreedyTest(unittest.TestCase):
 
         print("Following test_huffman_coding_for_sorted_input")
         self.assertTrue(['0', '100', '101', '1100', '1101', '111'] == huffman_coding_for_sorted_input(frecs=freq, symbol=chars))
+
+    def test_dps_water_connection(self):
+        # Driver function
+        n_of_houses = 9
+        p_of_pines = 6
+
+        arr = [[7, 4, 98], [5, 9, 72], [4, 6, 10 ],
+                [2, 8, 22 ], [9, 7, 17], [3, 1, 66]]
+
+        result = [[2,8,22], [3,1,66], [5,6,10]]
+
+        self.assertTrue(result == solve(arr, p_of_pines, n_of_houses))
