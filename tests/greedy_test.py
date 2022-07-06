@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve, police_thief
 
 
 class GreedyTest(unittest.TestCase):
@@ -97,3 +97,19 @@ class GreedyTest(unittest.TestCase):
         result = [[2,8,22], [3,1,66], [5,6,10]]
 
         self.assertTrue(result == solve(arr, p_of_pines, n_of_houses))
+
+    def test_police_thief(self):
+        arr1 = ['P', 'T', 'T', 'P', 'T']
+        k = 2
+        n = len(arr1)
+        self.assertTrue(2 ==  police_thief(arr1, n, k))
+
+        arr2 = ['T', 'T', 'P', 'P', 'T', 'P']
+        k = 2
+        n = len(arr2)
+        self.assertTrue(3 ==  police_thief(arr2, n, k))
+
+        arr3 = ['P', 'T', 'P', 'T', 'T', 'P']
+        k = 3
+        n = len(arr3)
+        self.assertTrue(3 ==  police_thief(arr3, n, k))

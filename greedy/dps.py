@@ -4,6 +4,7 @@
 
 # number of houses and number
 # of pipes
+from re import T
 from typing import List
 
 
@@ -84,3 +85,42 @@ def solve(arr: List, p_of_pines, n_of_houses):
         result.append([value, b[j], c[j]])
 
     return result
+
+
+
+
+# Python3 program to find maximum
+# number of thieves caught
+
+# Returns maximum number of thieves
+# that can be caught.
+def police_thief(arr, n, k):
+
+    thief: List = []
+    police: List = []
+    l = 0
+    r = 0
+    # to save result
+    result:List = []
+
+    for key, value in enumerate(arr):
+        if value == 'T':
+            thief.append(key)
+        elif value == 'P':
+            police.append(key)
+
+
+    # track lowest current indices of
+    # thief: thi[l], police: pol[r]
+    while l < len(thief) and r < len(police):
+        if abs(thief[l] - police[r]) <= k:
+            result.append([thief[l], police[r]])
+            l+=1
+            r+=1
+        elif thief[l] > police[r]:
+            r+=1
+        else:
+            l+=1
+
+
+    return len(result)
