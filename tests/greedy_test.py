@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve, police_thief
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve, police_thief, fitting_shelves_problem
 
 
 class GreedyTest(unittest.TestCase):
@@ -113,3 +113,9 @@ class GreedyTest(unittest.TestCase):
         k = 3
         n = len(arr3)
         self.assertTrue(3 ==  police_thief(arr3, n, k))
+
+    def test_fitting_shelves_problem(self):
+        w = 24
+        m = 3
+        n = 5
+        self.assertTrue(fitting_shelves_problem(w,m,n) == (3,3,0))

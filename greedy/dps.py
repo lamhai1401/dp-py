@@ -4,7 +4,6 @@
 
 # number of houses and number
 # of pipes
-from re import T
 from typing import List
 
 
@@ -124,3 +123,50 @@ def police_thief(arr, n, k):
 
 
     return len(result)
+
+
+def bracket_balancing(s:List):
+    # Swap stores the number of swaps
+    # required imbalance maintains the
+    # number of imbalance pair
+    swap = 0
+    imbalance = 0
+
+    for i in s:
+        if i == '[':
+
+            # Decrement the imbalance
+            imbalance -= 1
+        else:
+
+            # Increment imbalance
+            imbalance += 1
+
+            if imbalance > 0:
+                swap += imbalance
+
+    return swap
+
+def fitting_shelves_problem(w, m, n):
+    num_m = 0
+    num_n = 0
+
+    p = w//m
+    q = 0
+    rem=w%m
+    num_m=p
+    num_n=q
+    min_empty=rem
+
+
+    # calculate num m,n
+    while w >= n:
+        w -= n
+        p = w // m
+        q += 1
+        r = w % m # calculate rem of current w
+        if r <= rem:
+            num_m = p
+            num_n = q
+            rem = r
+    return (num_m, num_n, rem)
