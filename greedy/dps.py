@@ -170,3 +170,20 @@ def fitting_shelves_problem(w, m, n):
             num_n = q
             rem = r
     return (num_m, num_n, rem)
+
+
+def mice_to_holes(num_mice: List, num_hole: List):
+    # sorting
+    num_mice = sorted(num_mice)
+    num_hole = sorted(num_hole)
+
+    maxi = 0
+
+    length = len(num_mice)
+
+    for i in range(length):
+        rem = num_hole[i] - num_mice[i]
+        if rem > maxi:
+            maxi = rem
+
+    return maxi

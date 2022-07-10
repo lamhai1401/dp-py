@@ -2,7 +2,7 @@ from typing import List
 import unittest
 
 # from greedy import Graph
-from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve, police_thief, fitting_shelves_problem
+from greedy import sequencing_problem, sequencing_problem_with_heap, disjoin_set, loss_inimization, loss_inimization_strategy, build_huffman_tree, huffman_coding_for_sorted_input, solve, police_thief, fitting_shelves_problem, mice_to_holes
 
 
 class GreedyTest(unittest.TestCase):
@@ -119,3 +119,8 @@ class GreedyTest(unittest.TestCase):
         m = 3
         n = 5
         self.assertTrue(fitting_shelves_problem(w,m,n) == (3,3,0))
+
+    def test_mice_to_holes(self):
+        mice = [-10, -79, -79, 67, 93, -85, -28, -94]
+        holes = [-2, 9, 69, 25, -31, 23, 50, 78 ]
+        self.assertTrue(mice_to_holes(mice, holes) == 102)
