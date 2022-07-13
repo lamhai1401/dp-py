@@ -187,3 +187,4 @@ def mice_to_holes(num_mice: List, num_hole: List):
             maxi = rem
 
     return maxi
+
