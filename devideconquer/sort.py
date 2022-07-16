@@ -1,3 +1,4 @@
+import re
 from typing import Dict, List
 
 def bin_ser(arr, x):
@@ -113,7 +114,36 @@ def minimum_number_of_platforms(arrival: List, deps: List, n):
         result.append(data)
     return len(result)
 
-# start = [900, 940, 950, 1100, 1500, 1800]
-# dep = [910, 1200, 1120, 1130, 1900, 2000]
+def minimum_number_of_coins(coins: List, total):
+    # sorted coind
+    temp = total
+    coins = sorted(coins, reverse=True)
+    result: Dict = {}
 
-# minimum_number_of_platforms(start, dep, len(start))
+    i = 0
+
+    while i < len(coins):
+        if coins[i] > total:
+            i+=1
+            continue
+        if (total - coins[i]) >= 0:
+            total = total - coins[i]
+            saved = result.get(coins[i], 0)
+            if saved == 0:
+                result[coins[i]] = 1
+            else:
+                result[coins[i]] = result[coins[i]]+1
+            if total == 0:
+                break
+
+
+    data = 0
+    for _,key in enumerate(result.keys()):
+        data = data + (key * result.get(key))
+
+    print("Total after: ", data)
+    print("Rem after: ", data - temp)
+    return result
+
+    # lst: List = [1, 2, 5, 10, 20, 50, 100, 500, 1000]
+    # print(minimum_number_of_coins(lst, 9435347))
